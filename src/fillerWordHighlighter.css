@@ -1,0 +1,25 @@
+.cm-fillerWord { 
+    border-radius: 2px;
+    padding: 0 1px;
+}
+
+/* Word-specific colors */
+.cm-fillerWord { background-color: #fe1f40; } /* default color */
+.cm-fillerWord[data-word="start"], 
+.cm-fillerWord[data-word="begin"], 
+.cm-fillerWord[data-word="started"], 
+.cm-fillerWord[data-word="began"], 
+.cm-fillerWord[data-word="begun"] { background-color: #FFD700; }
+.cm-fillerWord[data-word="suddenly"] { background-color: #FF6B6B; }
+.cm-fillerWord[data-word="down"], 
+.cm-fillerWord[data-word="up"] { background-color: #98FB98; }
+.cm-fillerWord[data-word="kind of"], 
+.cm-fillerWord[data-word="really"] { background-color: #DDA0DD; }
+.cm-fillerWord[data-word="just"], 
+.cm-fillerWord[data-word="basically"] { background-color: #87CEEB; }
+.cm-fillerWord[data-word="would"], 
+.cm-fillerWord[data-word="could"] { background-color: #FFA07A; }
+.cm-fillerWord[data-word="feel"], 
+.cm-fillerWord[data-word="felt"] { background-color: #E6E6FA; }
+.cm-fillerWord[data-word="think"], 
+.cm-fillerWord[data-word="thought"] { background-color: #F0E68C; }

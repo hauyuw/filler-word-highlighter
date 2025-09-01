@@ -1,0 +1,16 @@
+{
+	"manifest_version": 1,
+	"id": "joplin-filler-word-highlighter",
+	"app_min_version": "3.3",
+	"version": "1.0.0",
+	"name": "Filler Word Highlighter",
+	"description": "A plugin to highlight filler words in the Joplin editor",
+	"author": "Alecto",
+	"homepage_url": "",
+	"repository_url": "",
+	"keywords": [],
+	"categories": [],
+	"screenshots": [],
+	"icons": {},
+	"promo_tile": {}
+}
