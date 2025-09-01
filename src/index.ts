@@ -69,5 +69,11 @@ joplin.plugins.register({
         //     'fillerWordHighlighterRichText',
         //     './richTextScript.js'
         // );
+
+        await joplin.contentScripts.register(
+            ContentScriptType.MarkdownItPlugin,
+            'enableFootnotes',
+            './footnotes.js'
+        );
     }
 });

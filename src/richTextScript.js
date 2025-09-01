@@ -28,7 +28,7 @@ module.exports = {
                     fillerWords.forEach(word => {
                         const regex = new RegExp(`\\b${word}\\b`, 'gi');
                         highlightedText = highlightedText.replace(regex, (match) => {
-                            return `<span class="cm-fillerWord" data-word="${word.toLowerCase()}">${match}</span>`;
+                            return `<span class="joplin-editable"><pre class="joplin-source" data-joplin-language="foo" data-joplin-source-open="" data-joplin-source-close="">${match}</pre><span class="cm-fillerWord" data-word="${word.toLowerCase()}">${match}</span></span>`;
                         });
                     });
 
