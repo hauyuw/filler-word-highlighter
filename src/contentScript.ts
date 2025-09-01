@@ -1,7 +1,13 @@
 import { StateField, StateEffect } from '@codemirror/state';
 import { EditorView, Decoration, DecorationSet } from '@codemirror/view';
 
-const fillerWordHighlight = Decoration.mark({ class: 'cm-fillerWord' });
+// Create decorations for each word with specific attributes
+const createWordHighlight = (word: string) => {
+    return Decoration.mark({ 
+        class: 'cm-fillerWord',
+        attributes: { 'data-word': word }
+    });
+};
 
 const fillerWords = [
     'that', 'then', 'start', 'begin', 'started', 'began', 'begun',
@@ -20,7 +26,7 @@ const highlightField = StateField.define<DecorationSet>({
         for (const e of tr.effects) {
             if (e.is(toggleHighlight)) {
                 if (e.value) {
-                    const matches: {from: number, to: number}[] = [];
+                    const matches: {from: number, to: number, word: string}[] = [];
                     const text = tr.state.doc.toString();
                     for (const word of fillerWords) {
                         const regex = new RegExp(`\\b${word}\\b`, 'gi');
@@ -28,14 +34,15 @@ const highlightField = StateField.define<DecorationSet>({
                         while ((match = regex.exec(text)) !== null) {
                             matches.push({
                                 from: match.index,
-                                to: match.index + match[0].length
+                                to: match.index + match[0].length,
+                                word: word
                             });
                         }
                     }
                     // Sort matches by position
                     matches.sort((a, b) => a.from - b.from);
-                    const decorations = matches.map(({from, to}) => 
-                        fillerWordHighlight.range(from, to)
+                    const decorations = matches.map(({from, to, word}) => 
+                        createWordHighlight(word).range(from, to)
                     );
                     return Decoration.set(decorations, true);
                 } else {
